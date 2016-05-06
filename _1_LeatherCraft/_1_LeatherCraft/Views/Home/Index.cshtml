@@ -1,7 +1,46 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    Layout = null;
 }
 
-<h2>Index</h2>
+<!DOCTYPE html>
 
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="~/Content/languages.css" rel="stylesheet" />
+    <link href="~/Content/languages.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: darksalmon; color:white; padding: 100px 550px;">
+    <div>
+        @using ( Html.BeginForm( "ChangeCulture", "Home" ) )
+        {
+            @Html.RadioButton( "lang", "ua", true )
+            <span class="lang-lg lang-lbl" lang="uk"></span>@: мова
+            <br /><br />
+            @Html.RadioButton( "lang", "ru" )
+            <span class="lang-lg lang-lbl" lang="ru"></span>@: язык
+            <br /><br />
+            @Html.RadioButton( "lang", "en" )
+            <span class="lang-lg lang-lbl" lang="en"></span>@: language.
+            <br /><br />
+            <input type="submit" name="submitLanguage" value="@Resources.Resource.ChooseLang" style="color:black">
+        }
+        <br /><br /><hr /><br /><br />
+        @using ( Html.BeginForm ( "ChangeCulture", "Home" ) )
+        {
+            <button name="lang" value="ua" class="btn btn-success"><span class="lang-lg lang-lbl" lang="uk"></span></button>
+            <br /><br />
+            <button name="lang" value="ru" class="btn btn-success"><span class="lang-lg lang-lbl" lang="ru"></span></button>
+            <br /><br />
+            <button name="lang" value="en" class="btn btn-success"><span class="lang-lg lang-lbl" lang="en"></span></button>
+        }
+    </div>
+</body>
+</html>
+            
